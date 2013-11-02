@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>http://tudiencongnghe.com//MediaWiki:Mainpage</loc>
+		<lastmod>2008-04-21T16:38:02Z</lastmod>
+		<priority>0.0</priority>
+	</url>
+	<url>
+		<loc>http://tudiencongnghe.com//MediaWiki:Newarticletext</loc>
+		<lastmod>2008-05-26T16:33:48Z</lastmod>
+		<priority>0.0</priority>
+	</url>
+	<url>
+		<loc>http://tudiencongnghe.com//MediaWiki:Noarticletext</loc>
+		<lastmod>2009-06-04T08:23:07Z</lastmod>
+		<priority>0.0</priority>
+	</url>
+	<url>
+		<loc>http://tudiencongnghe.com//MediaWiki:Sidebar</loc>
+		<lastmod>2008-04-22T19:42:58Z</lastmod>
+		<priority>0.0</priority>
+	</url>
+</urlset>

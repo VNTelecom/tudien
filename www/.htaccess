@@ -1,0 +1,15 @@
+DirectoryIndex /w/index.php
+RewriteEngine on
+RewriteRule ^(.*)\&(.*)$ $1\%26$2
+RewriteRule ^(.*)\+(.*)$ $1\%2B$2
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ /w/index.php?title=$1 [L,QSA]
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/javascript text/css application/x-javascript application/javascript
+</IfModule>
+<IfModule mod_gzip.c>
+mod_gzip_item_include mime ^text/.*
+mod_gzip_item_include mime ^application/javascript$
+mod_gzip_item_include mime ^application/x-javascript$
+</IfModule>

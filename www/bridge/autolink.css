@@ -1,0 +1,8 @@
+/* AutoLink to tudiencongnghe.net */
+a.tdcnAutoLink, a.tdcnAutoLink:link, a.tdcnAutoLink:visited, a.tdcnAutoLink:active {
+	border-bottom:1px double;
+	text-decoration:none;
+}
+a.tdcnAutoLink:hover {
+	background-color:#aaa;
+}
