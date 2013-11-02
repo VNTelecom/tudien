@@ -10,28 +10,6 @@
 
 # If you customize your file layout, set $IP to the directory that contains
 # the other MediaWiki files. It will be used as a base to locate files.
-if( defined( 'MW_INSTALL_PATH' ) ) {
-	$IP = MW_INSTALL_PATH;
-} else {
-	$IP = dirname( __FILE__ );
-}
-
-$path = array( $IP, "$IP/includes", "$IP/languages" );
-set_include_path( implode( PATH_SEPARATOR, $path ) . PATH_SEPARATOR . get_include_path() );
-
-require_once( "includes/DefaultSettings.php" );
-
-# If PHP's memory limit is very low, some operations may fail.
-# ini_set( 'memory_limit', '20M' );
-
-if ( $wgCommandLineMode ) {
-	if ( isset( $_SERVER ) && array_key_exists( 'REQUEST_METHOD', $_SERVER ) ) {
-		die( "This script must be run from the command line\n" );
-	}
-} elseif ( empty( $wgNoOutputBuffer ) ) {
-	## Compress output if the browser supports it
-	if( !ini_get( 'zlib.output_compression' ) ) @ob_start( 'ob_gzhandler' );
-}
 
 $wgSitename         = "Từ điển công nghệ";
 
@@ -43,8 +21,7 @@ $wgDisableOutputCompression = true;
 ## For more information on customizing the URLs please see:
 ## http://www.mediawiki.org/wiki/Manual:Short_URL
 
-$wgEnableEmail      = true;
-$wgEnableUserEmail  = true;
+$wgEnableUserEmail  = false;
 
 $wgEmergencyContact = "webmaster@vntelecom.org";
 $wgPasswordSender = "webmaster@vntelecom.org";
@@ -66,29 +43,11 @@ $wgDBpassword       = "";
 $wgDBport           = "3306";
 $wgDBprefix         = "wiki_";
 
-# Schemas for Postgres
-$wgDBmwschema       = "mediawiki";
-$wgDBts2schema      = "public";
-
-# Experimental charset support for MySQL 4.1/5.0.
-$wgDBmysql5 = false;
-
-## Shared memory settings
-$wgMainCacheType = CACHE_NONE;
-$wgMemCachedServers = array();
-
 ## To enable image uploads, make sure the 'images' directory
 ## is writable, then set this to true:
 $wgEnableUploads       = true;
-$wgUseImageResize      = true;
 $wgUseImageMagick = true;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
-
-## If you want to use image uploads under safe mode,
-## create the directories images/archive, images/thumb and
-## images/temp, and make them all writable. Then uncomment
-## this, if it's not already uncommented:
-# $wgHashedUploadDirectory = false;
 
 ## If you have the appropriate support software installed
 ## you can enable inline LaTeX equations:
@@ -97,8 +56,6 @@ $wgUseTeX           = true;
 $wgLocalInterwiki   = $wgSitename;
 
 $wgLanguageCode = "vi";
-
-$wgProxyKey = "3f4ea31bca5c405579a40d85442968c2de5609b03f4893ab3ce45bc0170fcf79";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'standard', 'nostalgia', 'cologneblue', 'monobook':
@@ -114,8 +71,6 @@ $wgRightsText = "Attribution-Noncommercial-No Derivative Works 3.0 ";
 $wgRightsIcon = "http://i.creativecommons.org/l/by-nc-nd/3.0/88x31.png";
 # $wgRightsCode = "by-nc-nd"; # Not yet used
 
-$wgDiff3 = "/usr/bin/diff3";
-
 # When you make changes to this configuration file, this will make
 # sure that cached pages are cleared.
 $configdate = gmdate( 'YmdHis', @filemtime( __FILE__ ) );
@@ -129,9 +84,6 @@ putenv("TZ=$oldtz");
 
 # This snippet prevents editing from anonymous users
 $wgGroupPermissions['*']['edit'] = false;
-
-# Client-side caching:
-$wgCachePages = false; # Allow client-side caching of pages
 
 # Extra namespaces
 $wgLogo = '/images/logo.png';
